@@ -1,0 +1,18 @@
+
+<h2>Cusomer Info</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody *ngFor='let customer of customers'>
+        <tr>
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.address}}</td>
+        </tr>
+    </tbody>
+</table>

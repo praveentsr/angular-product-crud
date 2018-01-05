@@ -1,0 +1,13 @@
+<input type="search" [(ngModel)]='searchMovie'/>
+<button (click)='searchMovieFun()' class="btn-primary">Search</button>
+<div *ngIf='movie'>
+<h2>Movie Info</h2>
+<p>Title:{{movie.Title}}</p>
+<p>Actors:{{movie.Actors}}</p>
+<p>Director:{{movie.Director}}</p>
+<p>Year:{{movie.Year}}</p>
+<div>
+    {{movie | json}}
+</div>
+</div>
+<p>{{errorMessage}}</p>
