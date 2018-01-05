@@ -1,0 +1,35 @@
+ [
+     {
+        "id":1,
+        "name":"pen",
+        "price":25,
+        "imageUrl":"app/products/images/pen.jpg",
+        "imageHeight":20,
+        "imageWidth":20,
+        "mfg":"27-april-2016",
+        "rating":3.2522
+    },
+    {
+        "id":2,
+        "name":"pencil",
+        "price":5,
+        "imageUrl":"app/products/images/pencil.png",
+        "imageHeight":20,
+        "imageWidth":20,
+        "mfg":"27-april-2015",
+        "rating":4.2533
+    },
+    {
+        "id":3,
+        "name":"eraser",
+        "price":5,
+        "imageUrl":"app/products/images/eraser.jpg",
+        "imageHeight":20,
+        "imageWidth":20,
+        "mfg":"27-april-2017",
+        "rating":4.257
+    },
+{
+
+}
+]
