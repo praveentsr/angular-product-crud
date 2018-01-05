@@ -1,0 +1,12 @@
+<form (ngSubmit)="save()" [formGroup]="signupForm">
+  <fieldset>
+    <div [ngClass]="{'has-error': formError.firstName }"> 
+      <label for="firstNameId">First Name</label> 
+      <input id="firstNameId" type="text" 
+      placeholder="First Name (required)" 
+      formControlName="firstName"
+      /> <span *ngIf="formError.firstName"> {{formError.firstName}} 
+        </span> </div>  
+        <button type="submit">Save</button>    
+        </fieldset>
+</form>

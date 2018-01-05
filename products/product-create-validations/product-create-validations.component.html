@@ -1,0 +1,83 @@
+<form class="form-horizontal">
+    <div class="form-group">
+    <label class='control-label col-md-2'>Country</label>  
+    <div class='col-md-10'>
+        <select [(ngModel)]="selectedCountry.id" name="country" #country>
+        <option *ngFor="let country of countries" 
+        value= {{country.id}}>
+        {{country.name}}
+  </option>
+</select>
+    </div>  
+    </div>
+    <div class="form-group">
+    <label class='control-label col-md-2'>Name</label>  
+    <div class='col-md-10'>
+        <input required minlength="3"
+        maxlength="30"
+         #name class="form-control" />
+    </div> 
+    <div *ngIf="name.errors && (name.dirty || name.touched)"
+     class="alert alert-danger">
+    <div [hidden]="!name.errors.required">
+      Name is required
+    </div>
+    <div [hidden]="!name.errors.minlength">
+      Name must be at least 3 characters long.
+    </div>
+    <div [hidden]="!name.errors.maxlength">
+      Name cannot be more than 30 characters long.
+    </div>
+</div> 
+    </div>
+    <div class="form-group">
+    <label class='control-label col-md-2'>Price</label>  
+    <div class='col-md-10'>
+        <input #price type='number' class="form-control" />
+    </div>  
+    </div>
+    <div class="form-group">
+    <label class='control-label col-md-2'>Mfg</label>  
+    <div class='col-md-10'>
+        <input #mfg type='date' class="form-control" />
+    </div>  
+    </div>
+
+    <div class="form-group">
+    <label class='control-label col-md-2'>Rating</label>  
+    <div class='col-md-10'>
+        <input #rating type='number' class="form-control" />
+    </div>  
+    </div>
+
+    <div class="form-group">
+    <label class='control-label col-md-2'>Image</label>  
+    <div class='col-md-10'>
+        <input #imageUrl type="file"  class="form-control" />
+    </div>  
+    </div>
+    <div class="form-group">
+    <label class='control-label col-md-2'>Image Height</label>  
+    <div class='col-md-10'>
+        <input #imageHeight type='number' class="form-control" />
+    </div>  
+    </div>
+
+    <div class="form-group">
+    <label class='control-label col-md-2'>Image Width</label>  
+    <div class='col-md-10'>
+        <input #imageWidth type='number' class="form-control" />
+    </div>  
+    </div>   
+    <div class='form-group'>
+        <div class="col-md-offset-2 col-md-10">
+    <button
+    type='submit' class="btn btn-default"
+    (click)=
+    "createProduct(name.value,price.value,mfg.value,rating.value,imageUrl.value,imageHeight,imageWidth,country.value)">
+        Create Product</button>
+        </div>
+    </div>
+    </form>
+    
+<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

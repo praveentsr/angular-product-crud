@@ -1,0 +1,59 @@
+<div>
+<h2>Product List</h2>
+<input type='text' [(ngModel)]='listFilter' />
+<table *ngIf='products && products.length' class="table table-bordered table-striped">
+<caption>Filtered By:{{listFilter}}</caption>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Price</th>
+<th>Mfg</th>
+<th>Rating</th>
+<th>Country</th>
+<th>
+<button (click)='toggleImages()' class="btn btn-primary">
+{{showImage?'Hide':'Show'}}  Images
+</button></th>
+</tr>
+</thead>
+<tbody>
+<tr 
+*ngFor='let product of products | productFilter:listFilter'>
+<td>{{product.id}}</td><td>
+<a 
+[routerLink]="['/product',product.id]" 
+[queryParams]="{
+name:product.name,
+price:product.price,
+mfg:product.mfg,
+imageUrl:product.imageUrl}">
+{{product.name | uppercase}}
+</a>
+</td>
+<td>{{product.price |currency:'INR':true}}</td>
+<td>{{product.mfg | date:'medium' | uppercase}}</td>
+<td>{{product.rating | number:'1.1-2'}}</td>
+<td>{{product.country}}</td>
+<td><img *ngIf='showImage' [src]='product.imageUrl' [style.width.px]='product.imageWidth' [style.height.px]='product.imageHeight'
+/></td>
+<td>
+<a [routerLink]="['/editproduct',product.id]">
+Edit
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+<button 
+class='btn btn-primary' 
+(click)='createProduct()'> 
+Create New Product
+</button>
+</div>
+<div>
+<h2>Products in JSON format</h2>
+<ul *ngFor='let product of products'>
+<li>{{product | json}}</li>
+</ul>
+</div>

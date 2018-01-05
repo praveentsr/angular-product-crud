@@ -1,0 +1,12 @@
+<form (ngSubmit)="save()">
+  <fieldset>
+    <div [ngClass]="{'has-error': firstNameVar.touched && !firstNameVar.valid }">
+      <label for="firstNameId">First Name</label>
+      <input id="firstNameId" type="text" placeholder="First Name (required)" required minlength="3" [(ngModel)]="customer.firstName"
+        name="firstName" #firstNameVar="ngModel" />
+      <span *ngIf="firstNameVar.touched && firstNameVar.errors"> 
+          Please enter your first name. </span>
+    </div>
+    <button type="submit">Save</button>
+  </fieldset>
+</form>
